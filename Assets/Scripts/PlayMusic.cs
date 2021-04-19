@@ -13,7 +13,7 @@ public class PlayMusic : MonoBehaviour
     void Start()
     {
         if (audioSrc == null) audioSrc = new AudioSource();
-        StartCoroutine(LoadTrack(Path.Combine(Application.persistentDataPath + "/Songs/SpookyScarySkeleton/", "Spooky_Scary_Skeletons.wav")));
+        StartCoroutine(LoadTrack(Path.Combine(Application.persistentDataPath + "/Songs/MonsterInc/", "MonstersInc.wav")));
     }
 
     IEnumerator LoadTrack(string filename)
@@ -28,6 +28,8 @@ public class PlayMusic : MonoBehaviour
 
         var clip = www.GetAudioClip(false, true, AudioType.OGGVORBIS);
         audioSrc.clip = clip;
+        Debug.Log("First time " + audioSrc.time);
+        //audioSrc.Play();
     }
 
     void OnGUI() // deprecated, use ordinary .UI now available in Unity
@@ -41,5 +43,10 @@ public class PlayMusic : MonoBehaviour
     public void OnClick()
     {
         audioSrc.Play();
+    }
+
+    private void Update()
+    {
+        //Debug.Log("audio time : " + audioSrc.time);
     }
 }
