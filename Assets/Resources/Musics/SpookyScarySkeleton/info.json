@@ -43,7 +43,7 @@
         {
           "_difficulty": "Hard",
           "_difficultyRank": 5,
-          "_beatmapFilename": "HardStandard.dat",
+          "_beatmapFilename": "HardStandard.json",
           "_noteJumpMovementSpeed": 16,
           "_noteJumpStartBeatOffset": 0.200000002980232,
           "_customData": {

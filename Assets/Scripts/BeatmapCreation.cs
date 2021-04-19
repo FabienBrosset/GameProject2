@@ -13,11 +13,13 @@ public class BeatmapCreation : MonoBehaviour
     // Do the mapping of the music level
     void Start()
     {
-        string dataPath = Path.Combine(Application.persistentDataPath, "Songs");
+        //string dataPath = Path.Combine(Application.persistentDataPath, "Songs");
 
         // Parse and stock all the values for the given level
+        TextAsset jsonTextfile = Resources.Load<TextAsset>("Musics/SpookyScarySkeleton/HardStandard");
         MapsInfo mapReading = new MapsInfo();
-        mapReading.InitLevelData(Path.Combine(dataPath, "SpookyScarySkeleton/HardStandard.dat"));
+        mapReading.InitLevelData(jsonTextfile.text);
+        //mapReading.InitLevelData(Path.Combine(dataPath, "SpookyScarySkeleton/HardStandard.dat"));
 
         // Get back the stocked values to create the beatmap level
         songMapping = mapReading.GetSongMapping();

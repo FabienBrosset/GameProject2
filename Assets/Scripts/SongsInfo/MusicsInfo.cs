@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using UnityEngine.UIElements;
 
+
 public class MusicsInfo : MonoBehaviour
 {
 	//Info.dat Json classes declaration
@@ -52,14 +53,16 @@ public class MusicsInfo : MonoBehaviour
 	//Parse the global information of the song + add the folderPath
 	void Start()
     {
-		string dataPath = Application.persistentDataPath + "/Songs";
+		//string dataPath = Application.persistentDataPath + "/Songs";
 
-		foreach (string dirPath in Directory.GetDirectories(dataPath, "*", SearchOption.AllDirectories))
-		{
-			string content = File.ReadAllText(Path.Combine(dirPath, "info.dat"));
-			SongData songdata = JsonUtility.FromJson<SongData>(content);
-			songdata._folderPath = dirPath;
+		//foreach (string dirPath in Directory.GetDirectories(dataPath, "*", SearchOption.AllDirectories))
+		//{
+		//	string content = File.ReadAllText(Path.Combine(dirPath, "info.dat"));
+			TextAsset jsonTextfile = Resources.Load<TextAsset>("Musics/SpookyScarySkeleton/info");
+			Debug.Log(jsonTextfile.text);
+			SongData songdata = JsonUtility.FromJson<SongData>(jsonTextfile.text);
+//			songdata._folderPath = dirPath;
 			Musics.Add(songdata);
-		}
+		//}
 	}
 }

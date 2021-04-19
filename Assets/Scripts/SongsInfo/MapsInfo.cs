@@ -47,8 +47,9 @@ public class MapsInfo
 	//Parse all the usefull information to create a beatmap
 	public void InitLevelData(string levelPath)
 	{
-		string content = File.ReadAllText(levelPath);
-		songMapping = JsonUtility.FromJson<Fst_SongMap>(content);
+		//		string content = File.ReadAllText(levelPath);
+//		songMapping = JsonUtility.FromJson<Fst_SongMap>(content);
+		songMapping = JsonUtility.FromJson<Fst_SongMap>(levelPath);
 	}
 
 	public Fst_SongMap GetSongMapping()

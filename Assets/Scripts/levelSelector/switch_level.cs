@@ -37,7 +37,7 @@ public class switch_level : MonoBehaviour
         // without this check the jukebox is shaking when not moving on checkpoint
         if((checkpoints[state].transform.position.x - rigidBody.position.x > 0.1f || checkpoints[state].transform.position.x - rigidBody.position.x < -0.1f) 
             && (checkpoints[state].transform.position.y - rigidBody.position.y > 0.1f || checkpoints[state].transform.position.y - rigidBody.position.y < -0.1))
-            move = (new Vector2(checkpoints[state].transform.position.x - rigidBody.position.x, checkpoints[state].transform.position.y - rigidBody.position.y)).normalized * 10f;
+        move = (new Vector2(checkpoints[state].transform.position.x - rigidBody.position.x, checkpoints[state].transform.position.y - rigidBody.position.y)).normalized * 10f;
 
         rigidBody.velocity = move;
     }
@@ -46,14 +46,16 @@ public class switch_level : MonoBehaviour
     {
         if (collider.transform.CompareTag("Checkpoint"))
         {
-            sceneToGo = collider.GetComponent<Checkpoint_level>().sceneName;
+            sceneToGo = collider.GetComponent<checkpoint_level>().sceneName;
+            collider.GetComponent<checkpoint_level>().text.SetActive(true);
         }
     }
-    void OnTrigger2D(Collider2D collider)
+    void OnTriggerExit2D(Collider2D collider)
     {
         if (collider.transform.CompareTag("Checkpoint"))
         {
-            sceneToGo = collider.GetComponent<Checkpoint_level>().sceneName;
+            sceneToGo = collider.GetComponent<checkpoint_level>().sceneName;
+            collider.GetComponent<checkpoint_level>().text.SetActive(false);
         }
     }
 }
