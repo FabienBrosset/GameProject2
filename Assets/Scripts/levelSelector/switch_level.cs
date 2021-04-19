@@ -26,7 +26,7 @@ public class switch_level : MonoBehaviour
         }
 
         Vector3 move = (oui[state].position - rigidBody.position).normalized * 10f;
-        move.y = 0f;
+        move.z = 0f;
 
         rigidBody.velocity = move;
     }
