@@ -134,11 +134,11 @@ GameObject:
   - component: {fileID: 78305114}
   - component: {fileID: 78305117}
   - component: {fileID: 78305116}
-  - component: {fileID: 78305115}
   - component: {fileID: 78305118}
+  - component: {fileID: 78305115}
   m_Layer: 0
   m_Name: checkpoint (2)
-  m_TagString: Untagged
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,20 +158,22 @@ Transform:
   m_Father: {fileID: 429776453}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!136 &78305115
-CapsuleCollider:
+--- !u!58 &78305115
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 78305113}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000029802322, y: -0.00000011920929}
+  serializedVersion: 2
+  m_Radius: 1.0000001
 --- !u!23 &78305116
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -233,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f42119d142276644c9db416eab267a83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: JukePlaySong
+  sceneName: DefenseScene
 --- !u!1 &217641350
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,9 +247,9 @@ GameObject:
   - component: {fileID: 217641353}
   - component: {fileID: 217641352}
   - component: {fileID: 217641351}
+  - component: {fileID: 217641354}
   - component: {fileID: 217641356}
   - component: {fileID: 217641355}
-  - component: {fileID: 217641354}
   m_Layer: 0
   m_Name: Juke
   m_TagString: Player
@@ -351,39 +353,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3dd26b1a262964eb7847ba60b7106d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  oui:
-  - {fileID: 1941897326}
-  - {fileID: 78305114}
-  - {fileID: 702474814}
---- !u!65 &217641355
-BoxCollider:
+  checkpoints:
+  - {fileID: 1941897325}
+  - {fileID: 78305113}
+  - {fileID: 702474813}
+--- !u!61 &217641355
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 217641350}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.88, y: 1.2}
+    newSize: {x: 0.88, y: 1.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.88, y: 1.2, z: 0.42224538}
-  m_Center: {x: 0, y: 0, z: -0.11112261}
---- !u!54 &217641356
-Rigidbody:
+  m_Size: {x: 0.88, y: 1.2}
+  m_EdgeRadius: 0
+--- !u!50 &217641356
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 217641350}
-  serializedVersion: 2
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
   m_Mass: 1
-  m_Drag: 0
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_Constraints: 112
+  m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &344474726
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,11 +545,11 @@ GameObject:
   - component: {fileID: 702474814}
   - component: {fileID: 702474817}
   - component: {fileID: 702474816}
-  - component: {fileID: 702474815}
   - component: {fileID: 702474818}
+  - component: {fileID: 702474815}
   m_Layer: 0
   m_Name: checkpoint (3)
-  m_TagString: Untagged
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -549,20 +569,22 @@ Transform:
   m_Father: {fileID: 429776453}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!136 &702474815
-CapsuleCollider:
+--- !u!58 &702474815
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 702474813}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.000000059604645, y: 0.00000011920929}
+  serializedVersion: 2
+  m_Radius: 1.0000001
 --- !u!23 &702474816
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -624,7 +646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f42119d142276644c9db416eab267a83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: JukePlaySong
+  sceneName: JukePlaySong
 --- !u!1 &1384619967
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,11 +920,11 @@ GameObject:
   - component: {fileID: 1941897326}
   - component: {fileID: 1941897329}
   - component: {fileID: 1941897328}
-  - component: {fileID: 1941897327}
   - component: {fileID: 1941897330}
+  - component: {fileID: 1941897327}
   m_Layer: 0
   m_Name: checkpoint (1)
-  m_TagString: Untagged
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -922,20 +944,22 @@ Transform:
   m_Father: {fileID: 429776453}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!136 &1941897327
-CapsuleCollider:
+--- !u!58 &1941897327
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1941897325}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0000004172325, y: -0.00000011920929}
+  serializedVersion: 2
+  m_Radius: 1.0000001
 --- !u!23 &1941897328
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -997,7 +1021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f42119d142276644c9db416eab267a83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: JukePlaySong
+  sceneName: JukePlaySong
 --- !u!1 &2036110465
 GameObject:
   m_ObjectHideFlags: 0
