@@ -5,13 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+<<<<<<< HEAD
+=======
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/LevelSelector.unity
+    guid: 571005cc886b0664483521313fcbe6bf
+>>>>>>> main
   - enabled: 1
     path: Assets/Scenes/LevelSelector.unity
     guid: 571005cc886b0664483521313fcbe6bf
   - enabled: 1
     path: Assets/Scenes/DefenseScene.unity
     guid: 2b35b2923f8410b4eb467aacde3cc79a
+<<<<<<< HEAD
   - enabled: 1
     path: Assets/Scenes/JukePlaySong.unity
     guid: b3f84844eae5bfb468783fd3c8e70e02
+=======
+>>>>>>> main
   m_configObjects: {}

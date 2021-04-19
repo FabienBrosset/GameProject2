@@ -7,7 +7,6 @@ TagManager:
   - KeyNote
   - Catcher
   - Checkpoint
-  - WallDestroyer
   - EnemyAttack
   layers:
   - Default
