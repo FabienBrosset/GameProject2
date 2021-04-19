@@ -17,7 +17,7 @@ public class BeatmapCreation : MonoBehaviour
 
         // Parse and stock all the values for the given level
         MapsInfo mapReading = new MapsInfo();
-        mapReading.InitLevelData(Path.Combine(dataPath, "MonsterInc/Hard.dat"));
+        mapReading.InitLevelData(Path.Combine(dataPath, "SpookyScarySkeleton/HardStandard.dat"));
 
         // Get back the stocked values to create the beatmap level
         songMapping = mapReading.GetSongMapping();

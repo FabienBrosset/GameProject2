@@ -13,7 +13,7 @@ public class PlayMusic : MonoBehaviour
     void Start()
     {
         if (audioSrc == null) audioSrc = new AudioSource();
-        StartCoroutine(LoadTrack(Path.Combine(Application.persistentDataPath + "/Songs/MonsterInc/", "MonstersInc.wav")));
+        StartCoroutine(LoadTrack(Path.Combine(Application.persistentDataPath + "/Songs/SpookyScarySkeleton/", "Spooky Scary Skeletons.wav")));
     }
 
     IEnumerator LoadTrack(string filename)

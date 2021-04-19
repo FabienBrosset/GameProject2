@@ -11,7 +11,7 @@ public class EnemyAttackManager : MonoBehaviour
     public GameObject fireBallPrefab;
     public GameObject wallSpawner;
 
-    private float BPMSpookyScarySkeletons = 110f;
+    private float BPMSpookyScarySkeletons = 128f;
     private float timePerBeat = 0;
 
     public BeatmapCreation beatmapCreation;

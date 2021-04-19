@@ -664,6 +664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.3
+  inviciblityTime: 1
   maxTopRight: {fileID: 1996238568}
   maxBottomLeft: {fileID: 2019852642}
   hp: 5
