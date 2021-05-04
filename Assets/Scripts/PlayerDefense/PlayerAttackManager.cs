@@ -2,47 +2,74 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using static MapsInfo;
+
 public class PlayerAttackManager : MonoBehaviour
 {
-    
-    private float time;
-    private float timeTo;
 
     public float speedValue = 3f;
 
     public GameObject keyNotePrefab;
     public float distanceInstantiate = 4f;
 
+    private float BPMSpookyScarySkeletons = 110f;
+    private float timePerBeat = 0;
+
+    public BeatmapCreation beatmapCreation;
+
+    private Fst_SongMap mappedSong;
+
+    private int noteCounter = 0;
+    public AudioSource audio;
+
+    private float lastTime = 0f;
+
     void Start()
     {
-        timeTo = Time.deltaTime + 1;
+        mappedSong = beatmapCreation.songMapping;
+
+        timePerBeat = 60f / BPMSpookyScarySkeletons;
     }
 
     void Update()
     {
-        time += Time.deltaTime;
 
-        if (time > timeTo)
+        if (mappedSong._notes.Length > noteCounter)
         {
-            timeTo = time + 1;
-            int _rand = Random.Range(0, 4); // left,right,up,down
-            
-            if (_rand == 0)
+            if (mappedSong._notes[noteCounter]._time <= (audio.time / timePerBeat))
             {
-                CreateKeyNote(new Vector2(distanceInstantiate, 0f), "left", speedValue);
+
+                //UnityEngine.Debug.Log("x " + mappedSong._notes[noteCounter]._lineIndex);
+
+                if (mappedSong._notes[noteCounter]._lineIndex == 0)
+                {
+                    CreateKeyNote(new Vector2(distanceInstantiate, 0f), "left", speedValue);
+                }
+                else if (mappedSong._notes[noteCounter]._lineIndex == 1)
+                {
+                    CreateKeyNote(new Vector2(-distanceInstantiate, 0f), "right", speedValue);
+                }
+                else if (mappedSong._notes[noteCounter]._lineIndex == 2)
+                {
+                    CreateKeyNote(new Vector2(0f, -distanceInstantiate), "up", speedValue);
+                }
+                else if (mappedSong._notes[noteCounter]._lineIndex == 3)
+                {
+                    CreateKeyNote(new Vector2(0f, distanceInstantiate), "down", speedValue);
+                }
+
+                lastTime = mappedSong._notes[noteCounter]._time;
+                while (lastTime == mappedSong._notes[noteCounter]._time)
+                {
+                    noteCounter++;
+                }
+                //UnityEngine.Debug.Log("y " + mappedSong._notes[noteCounter]._lineLayer);
+                //UnityEngine.Debug.Log("Should pop at " + mappedSong._notes[noteCounter]._time + " Popekd at " + audio.time);
+                //Instantiate(fireBallPrefab, new Vector2(randomX, 4), Quaternion.identity);
+                noteCounter++;
             }
-            else if (_rand == 1)
-            {
-                CreateKeyNote(new Vector2(-distanceInstantiate, 0f), "right", speedValue);
-            }
-            else if (_rand == 2)
-            {
-                CreateKeyNote(new Vector2(0f, -distanceInstantiate), "up", speedValue);
-            }
-            else if (_rand == 3)
-            {
-                CreateKeyNote(new Vector2(0f, distanceInstantiate), "down", speedValue);
-            }
+
+
         }
     }
 

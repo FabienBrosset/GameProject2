@@ -7,6 +7,11 @@ public class CircleCatcher : MonoBehaviour
 
     public int facingWay = 0; //up, right, down, left 0,1,2,3
 
+    public int catched = 0;
+    public int missed = 0;
+    public int biggestCombo = 0;
+    public int actualCombo = 0;
+
     private Animator anim;
 
     void Start()
@@ -135,10 +140,17 @@ public class CircleCatcher : MonoBehaviour
             if (col.transform.GetComponent<KeyNoteScript>().direction == directionCircle)
             {
                 Debug.Log("Got Key !");
+                catched += 1;
+                actualCombo += 1;
             }
             else
             {
                 Debug.Log("Missed ...");
+                missed += 1;
+
+                if (actualCombo > biggestCombo)
+                    biggestCombo = actualCombo;
+                actualCombo = 0;
             }
 
             Destroy(col.gameObject);
