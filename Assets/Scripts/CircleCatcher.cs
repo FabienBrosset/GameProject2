@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CircleCatcher : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class CircleCatcher : MonoBehaviour
     public int missed = 0;
     public int biggestCombo = 0;
     public int actualCombo = 0;
+
+    public Text comboText;
+
+    public Animator bossAnim;
 
     private Animator anim;
 
@@ -37,6 +42,8 @@ public class CircleCatcher : MonoBehaviour
         {
             MoveArrow(3);
         }
+
+        comboText.transform.Translate(Vector3.up * Time.deltaTime * 40f);
     }
 
     void StopAnim()
@@ -137,16 +144,31 @@ public class CircleCatcher : MonoBehaviour
             else if (facingWay == 3)
                 directionCircle = "right";
 
+            comboText.transform.localPosition = new Vector3(95f, 0f, 0f);
+
             if (col.transform.GetComponent<KeyNoteScript>().direction == directionCircle)
             {
-                Debug.Log("Got Key !");
+                //Debug.Log("Got Key !");
                 catched += 1;
                 actualCombo += 1;
+
+                //text combo !
+                comboText.text = "Combo X" + actualCombo;
+                comboText.color = Color.yellow;
+
             }
             else
             {
-                Debug.Log("Missed ...");
+                //Debug.Log("Missed ...");
                 missed += 1;
+
+                comboText.text = "Missed !";
+                comboText.color = Color.red;
+
+                if (actualCombo != 0)
+                {
+                    bossAnim.Play("DamageBoss01");
+                }
 
                 if (actualCombo > biggestCombo)
                     biggestCombo = actualCombo;

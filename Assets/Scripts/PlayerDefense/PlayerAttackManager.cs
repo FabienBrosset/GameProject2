@@ -23,16 +23,24 @@ public class PlayerAttackManager : MonoBehaviour
     public AudioSource audio;
 
     private float lastTime = 0f;
+    private float actualTime = 0;
 
     void Start()
     {
         mappedSong = beatmapCreation.songMapping;
 
         timePerBeat = 60f / BPMSpookyScarySkeletons;
+
+        lastTime = Time.deltaTime + 0.1f;
     }
 
     void Update()
     {
+        actualTime += Time.deltaTime;
+        if (actualTime < lastTime)
+        {
+            return;
+        }
 
         if (mappedSong._notes.Length > noteCounter)
         {
@@ -58,11 +66,9 @@ public class PlayerAttackManager : MonoBehaviour
                     CreateKeyNote(new Vector2(0f, distanceInstantiate), "down", speedValue);
                 }
 
-                lastTime = mappedSong._notes[noteCounter]._time;
-                while (lastTime == mappedSong._notes[noteCounter]._time)
-                {
-                    noteCounter++;
-                }
+
+                lastTime = actualTime + 0.2f;
+
                 //UnityEngine.Debug.Log("y " + mappedSong._notes[noteCounter]._lineLayer);
                 //UnityEngine.Debug.Log("Should pop at " + mappedSong._notes[noteCounter]._time + " Popekd at " + audio.time);
                 //Instantiate(fireBallPrefab, new Vector2(randomX, 4), Quaternion.identity);
