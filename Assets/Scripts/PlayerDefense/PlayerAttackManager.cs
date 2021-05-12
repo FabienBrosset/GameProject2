@@ -33,7 +33,6 @@ public class PlayerAttackManager : MonoBehaviour
         timePerBeat = 60f / BPMSpookyScarySkeletons;
 
         lastTime = Time.deltaTime + 0.1f;
-        Debug.Log(phaseManager.noteCounter);
     }
 
     void Update()

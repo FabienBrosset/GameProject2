@@ -32,7 +32,6 @@ public class PlayerDefenseManager : MonoBehaviour
         mappedSong = beatmapCreation.songMapping;
 
         timePerBeat = 60f / BPMSpookyScarySkeletons;
-        UnityEngine.Debug.Log(phaseManager.noteCounter);
     }
 
     // Update is called once per frame
@@ -45,8 +44,8 @@ public class PlayerDefenseManager : MonoBehaviour
             {
                 float randomX = Random.Range(-6.5f, 7f);
 
-                UnityEngine.Debug.Log("x " + mappedSong._notes[phaseManager.noteCounter]._lineIndex);
-                UnityEngine.Debug.Log("y " + mappedSong._notes[phaseManager.noteCounter]._cutDirection);
+                //UnityEngine.Debug.Log("x " + mappedSong._notes[phaseManager.noteCounter]._lineIndex);
+                //UnityEngine.Debug.Log("y " + mappedSong._notes[phaseManager.noteCounter]._cutDirection);
                 //UnityEngine.Debug.Log("Should pop at " + mappedSong._notes[noteCounter]._time + " Poped at " + audio.time);
                 Instantiate(fireBallPrefab, new Vector2(randomX, 4), Quaternion.identity);
                 phaseManager.noteCounter++;
