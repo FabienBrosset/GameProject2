@@ -45,9 +45,4 @@ public class PlayMusic : MonoBehaviour
     {
         audioSrc.Play();
     }
-
-    private void Update()
-    {
-        //Debug.Log("audio time : " + audioSrc.time);
-    }
 }

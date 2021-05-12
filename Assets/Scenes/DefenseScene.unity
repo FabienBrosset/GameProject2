@@ -643,7 +643,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -663,7 +663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6afeed9e747cef45842ce8072f0552c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.3
+  moveSpeed: 12
   inviciblityTime: 1
   maxTopRight: {fileID: 1996238568}
   maxBottomLeft: {fileID: 2019852642}
@@ -921,7 +921,7 @@ MonoBehaviour:
   fireBallPrefab: {fileID: 6167667863317086992, guid: 1acde9e5d8b295a4fbf19bfcf9c7cde1, type: 3}
   wallSpawner: {fileID: 97316431}
   beatmapCreation: {fileID: 511687461}
-  audio: {fileID: 1939310029}
+  _audio: {fileID: 1939310029}
 --- !u!4 &1652361992
 Transform:
   m_ObjectHideFlags: 0

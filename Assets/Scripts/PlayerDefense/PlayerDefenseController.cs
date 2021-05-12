@@ -6,9 +6,8 @@ public class PlayerDefenseController : MonoBehaviour
 {
     public float moveSpeed = 5f;
 
-    private Rigidbody2D rb;
     private Animator animator;
-    private Collider2D collider2D;
+    private Collider2D _collider2D;
 
     private float takeDamageStartTime;
     public float inviciblityTime = 1f;
@@ -18,45 +17,41 @@ public class PlayerDefenseController : MonoBehaviour
 
     public int hp = 5;
 
-    private Vector2 movement;
 
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
-        collider2D = gameObject.GetComponent<Collider2D>();
+        _collider2D = gameObject.GetComponent<Collider2D>();
     }
 
     void Update()
     {
         // reset the collider when invicibilty frame end
-        if (Time.time - takeDamageStartTime >= inviciblityTime && collider2D.isTrigger == true)
+        if (Time.time - takeDamageStartTime >= inviciblityTime && _collider2D.isTrigger == true)
         {
-            collider2D.isTrigger = false;
+            _collider2D.isTrigger = false;
         }
 
         if (hp <= 0)
         {
             Debug.Log("You lost");
         }
-        movement.x = Input.GetAxis("Horizontal");
-        movement.y = Input.GetAxis("Vertical");
 
-        if (rb.position.x >= maxTopRight.position.x && movement.x > 0)
+        if (Input.GetKey(KeyCode.D))
         {
-            movement.x = 0;
+            transform.Translate((Vector2.right * moveSpeed) * Time.deltaTime);
         }
-        if (rb.position.x <= maxBottomLeft.position.x && movement.x < 0)
+        else if (Input.GetKey(KeyCode.A))
         {
-            movement.x = 0;
+            transform.Translate((Vector2.left * moveSpeed) * Time.deltaTime);
         }
-        if (rb.position.y >= maxTopRight.position.y && movement.y > 0)
+        if (Input.GetKey(KeyCode.W))
         {
-            movement.y = 0;
+            transform.Translate((Vector2.up * moveSpeed) * Time.deltaTime);
         }
-        if (rb.position.y <= maxBottomLeft.position.y && movement.y < 0)
+        else if (Input.GetKey(KeyCode.S))
         {
-            movement.y = 0;
+            transform.Translate((Vector2.down * moveSpeed) * Time.deltaTime);
         }
     }
 
@@ -68,7 +63,7 @@ public class PlayerDefenseController : MonoBehaviour
             {
                 hp--;
                 animator.SetTrigger("TakeDamage");
-                collider2D.isTrigger = true;
+                _collider2D.isTrigger = true;
                 takeDamageStartTime = Time.time;
 
                 Debug.Log("Losing life");
@@ -77,10 +72,5 @@ public class PlayerDefenseController : MonoBehaviour
                 Debug.Log("Already dead");
             }
         }    
-    }
-
-    void FixedUpdate()
-    {
-        rb.MovePosition(rb.position + movement * moveSpeed);
     }
 }

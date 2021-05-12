@@ -19,11 +19,12 @@ public class PlayerAttackManager : MonoBehaviour
 
     private Fst_SongMap mappedSong;
 
-    private int noteCounter = 0;
     public AudioSource audio;
 
     private float lastTime = 0f;
     private float actualTime = 0;
+
+    public PhaseManager phaseManager;
 
     void Start()
     {
@@ -32,6 +33,7 @@ public class PlayerAttackManager : MonoBehaviour
         timePerBeat = 60f / BPMSpookyScarySkeletons;
 
         lastTime = Time.deltaTime + 0.1f;
+        Debug.Log(phaseManager.noteCounter);
     }
 
     void Update()
@@ -41,27 +43,27 @@ public class PlayerAttackManager : MonoBehaviour
         {
             return;
         }
-
-        if (mappedSong._notes.Length > noteCounter)
+        
+        if (mappedSong._notes.Length > phaseManager.noteCounter)
         {
-            if (mappedSong._notes[noteCounter]._time <= (audio.time / timePerBeat))
+            if (mappedSong._notes[phaseManager.noteCounter]._time <= (audio.time / timePerBeat))
             {
 
                 //UnityEngine.Debug.Log("x " + mappedSong._notes[noteCounter]._lineIndex);
 
-                if (mappedSong._notes[noteCounter]._lineIndex == 0)
+                if (mappedSong._notes[phaseManager.noteCounter]._lineIndex == 0)
                 {
                     CreateKeyNote(new Vector2(distanceInstantiate, 0f), "left", speedValue);
                 }
-                else if (mappedSong._notes[noteCounter]._lineIndex == 1)
+                else if (mappedSong._notes[phaseManager.noteCounter]._lineIndex == 1)
                 {
                     CreateKeyNote(new Vector2(-distanceInstantiate, 0f), "right", speedValue);
                 }
-                else if (mappedSong._notes[noteCounter]._lineIndex == 2)
+                else if (mappedSong._notes[phaseManager.noteCounter]._lineIndex == 2)
                 {
                     CreateKeyNote(new Vector2(0f, -distanceInstantiate), "up", speedValue);
                 }
-                else if (mappedSong._notes[noteCounter]._lineIndex == 3)
+                else if (mappedSong._notes[phaseManager.noteCounter]._lineIndex == 3)
                 {
                     CreateKeyNote(new Vector2(0f, distanceInstantiate), "down", speedValue);
                 }
@@ -72,7 +74,7 @@ public class PlayerAttackManager : MonoBehaviour
                 //UnityEngine.Debug.Log("y " + mappedSong._notes[noteCounter]._lineLayer);
                 //UnityEngine.Debug.Log("Should pop at " + mappedSong._notes[noteCounter]._time + " Popekd at " + audio.time);
                 //Instantiate(fireBallPrefab, new Vector2(randomX, 4), Quaternion.identity);
-                noteCounter++;
+                phaseManager.noteCounter++;
             }
 
 
