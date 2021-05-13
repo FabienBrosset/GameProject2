@@ -37,19 +37,19 @@ public class PlayerDefenseController : MonoBehaviour
             Debug.Log("You lost");
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && transform.position.x < maxTopRight.position.x)
         {
             transform.Translate((Vector2.right * moveSpeed) * Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A) && transform.position.x > maxBottomLeft.position.x)
         {
             transform.Translate((Vector2.left * moveSpeed) * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) && transform.position.y < maxTopRight.position.y)
         {
             transform.Translate((Vector2.up * moveSpeed) * Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.S) && transform.position.y > maxBottomLeft.position.y)
         {
             transform.Translate((Vector2.down * moveSpeed) * Time.deltaTime);
         }
