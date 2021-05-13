@@ -1,0 +1,58 @@
+{
+  "_version": "2.0.0",
+  "_songName": "Turret Opera / Cara Mia Addio",
+  "_songSubName": "- Portal 2",
+  "_songAuthorName": "Mike Morasky",
+  "_levelAuthorName": "Jokidum",
+  "_beatsPerMinute": 109,
+  "_songTimeOffset": 0,
+  "_shuffle": 0,
+  "_shufflePeriod": 0.5,
+  "_previewStartTime": 5,
+  "_previewDuration": 100,
+  "_songFilename": "CaraMia.wav",
+  "_coverImageFilename": "cover.jpg",
+  "_environmentName": "PanicEnvironment",
+  "_customData": {
+    "_editor": "beatmapper",
+    "_editorSettings": {
+      "enabledFastWalls": false,
+      "modSettings": {}
+    }
+  },
+  "_difficultyBeatmapSets": [
+    {
+      "_beatmapCharacteristicName": "Standard",
+      "_difficultyBeatmaps": [
+        {
+          "_difficulty": "Expert",
+          "_difficultyRank": 7,
+          "_beatmapFilename": "Expert.dat",
+          "_noteJumpMovementSpeed": 12,
+          "_noteJumpStartBeatOffset": 0,
+          "_customData": {
+            "_editorOffset": 0,
+            "_requirements": []
+          }
+        }
+      ]
+    },
+    {
+      "_beatmapCharacteristicName": "Lightshow",
+      "_difficultyBeatmaps": [
+        {
+          "_difficulty": "Easy",
+          "_difficultyRank": 1,
+          "_beatmapFilename": "EasyLightshow.dat",
+          "_noteJumpMovementSpeed": 16,
+          "_noteJumpStartBeatOffset": 0,
+          "_customData": {
+            "_editorOffset": 0,
+            "_requirements": [],
+            "_difficultyLabel": "Lightshow"
+          }
+        }
+      ]
+    }
+  ]
+}
