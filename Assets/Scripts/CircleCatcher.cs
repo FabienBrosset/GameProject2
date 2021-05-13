@@ -18,6 +18,8 @@ public class CircleCatcher : MonoBehaviour
     public Text comboText;
     public Text bossText;
 
+    public string textAnim;
+
     public Animator bossAnim;
 
     private Animator anim;
@@ -172,7 +174,7 @@ public class CircleCatcher : MonoBehaviour
 
                 if (actualCombo != 0)
                 {
-                    bossAnim.Play("DamageBoss01");
+                    bossAnim.Play(textAnim);
 
                     bossLife -= (actualCombo * actualCombo);
 
