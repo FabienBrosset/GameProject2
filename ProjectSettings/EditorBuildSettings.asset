@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PianoPlaySong.unity
     guid: b6ea89c243c651a429d77bca977c456a
+  - enabled: 1
+    path: Assets/Scenes/DrumPlaySong.unity
+    guid: 0811d7745a03bc3438f1e2f9b8744afc
   m_configObjects: {}
