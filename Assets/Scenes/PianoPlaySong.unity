@@ -944,6 +944,7 @@ MonoBehaviour:
   bossLife: 10000
   comboText: {fileID: 33465388}
   bossText: {fileID: 1315315247}
+  textAnim: DamageBoss02
   bossAnim: {fileID: 179429179}
 --- !u!50 &653427837
 Rigidbody2D:
