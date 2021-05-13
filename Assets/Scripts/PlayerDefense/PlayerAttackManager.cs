@@ -12,7 +12,7 @@ public class PlayerAttackManager : MonoBehaviour
     public GameObject keyNotePrefab;
     public float distanceInstantiate = 4f;
 
-    private float BPMSpookyScarySkeletons = 110f;
+    private float BPMSpookyScarySkeletons = 128f;
     private float timePerBeat = 0;
 
     public BeatmapCreation beatmapCreation;
