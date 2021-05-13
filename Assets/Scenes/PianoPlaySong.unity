@@ -1037,6 +1037,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8710516517583743833, guid: a39d11ce6d141a14b846893888305c8e, type: 3}
+      propertyPath: musicData
+      value: 
+      objectReference: {fileID: 1019702402}
     - target: {fileID: 8710516517583743835, guid: a39d11ce6d141a14b846893888305c8e, type: 3}
       propertyPath: m_Name
       value: MusicPlayer
@@ -1054,6 +1058,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fad53b78767b25428ffae11399cf61b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1019702401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1019702403}
+  - component: {fileID: 1019702402}
+  m_Layer: 0
+  m_Name: MusicData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1019702402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019702401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 381f920aa3c339142af2d8914364ff15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicDataPath: Musics/CaraMia_Portal2/Expert
+  audioClipPath: Musics/CaraMia_Portal2/CaraMia
+  BPM: 109
+--- !u!4 &1019702403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019702401}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.3831863, y: 1.6465746, z: -2.4200943}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1045327898
 GameObject:
   m_ObjectHideFlags: 0
@@ -1636,6 +1686,7 @@ MonoBehaviour:
   - {fileID: 8738072242967179962, guid: 3ad56342b699a784ea823c3ec3499919, type: 3}
   fireBallPrefab: {fileID: 6167667863317086992, guid: 1acde9e5d8b295a4fbf19bfcf9c7cde1, type: 3}
   wallSpawner: {fileID: 1781990414}
+  musicData: {fileID: 1019702402}
   beatmapCreation: {fileID: 863787459}
   _audio: {fileID: 1184180175}
   phaseManager: {fileID: 2079546078}
@@ -2003,6 +2054,7 @@ MonoBehaviour:
   speedValue: 6
   keyNotePrefab: {fileID: 8839861998613475270, guid: e7864a517fb19a1408f874563e3a746d, type: 3}
   distanceInstantiate: 4
+  MusicData: {fileID: 1019702402}
   beatmapCreation: {fileID: 863787459}
   audio: {fileID: 1184180175}
   phaseManager: {fileID: 2079546078}
@@ -2096,6 +2148,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3606291869984951888, guid: a4116838a02da914483d9489a7ced574, type: 3}
+      propertyPath: musicData
+      value: 
+      objectReference: {fileID: 1019702402}
     - target: {fileID: 3606291869984951889, guid: a4116838a02da914483d9489a7ced574, type: 3}
       propertyPath: m_Name
       value: SongMapping

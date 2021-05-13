@@ -11,7 +11,7 @@ public class PlayerDefenseManager : MonoBehaviour
     public GameObject fireBallPrefab;
     public GameObject wallSpawner;
 
-    private float BPMSpookyScarySkeletons = 128f;
+    public MusicData musicData;
     private float timePerBeat = 0;
 
     public BeatmapCreation beatmapCreation;
@@ -31,7 +31,7 @@ public class PlayerDefenseManager : MonoBehaviour
     {
         mappedSong = beatmapCreation.songMapping;
 
-        timePerBeat = 60f / BPMSpookyScarySkeletons;
+        timePerBeat = 60f / musicData.BPM;
     }
 
     // Update is called once per frame

@@ -9,12 +9,13 @@ using System.IO;
 public class PlayMusic : MonoBehaviour
 {
     public AudioSource audioSrc;
+    public MusicData musicData;
 
     void Start()
     {
         if (audioSrc == null) audioSrc = new AudioSource();
         //StartCoroutine(LoadTrack(Path.Combine(Application.persistentDataPath + "/Songs/SpookyScarySkeleton/", "Spooky Scary Skeletons.wav")));
-        audioSrc.clip = Resources.Load<AudioClip>("Musics/SpookyScarySkeleton/Spooky Scary Skeletons");
+        audioSrc.clip = Resources.Load<AudioClip>(musicData.audioClipPath);
     }
 
     IEnumerator LoadTrack(string filename)

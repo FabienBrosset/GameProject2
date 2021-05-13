@@ -9,6 +9,7 @@ using static MapsInfo;
 public class BeatmapCreation : MonoBehaviour
 {
     public Fst_SongMap songMapping;
+    public MusicData musicData;
 
     // Do the mapping of the music level
     void Start()
@@ -16,7 +17,7 @@ public class BeatmapCreation : MonoBehaviour
         //string dataPath = Path.Combine(Application.persistentDataPath, "Songs");
 
         // Parse and stock all the values for the given level
-        TextAsset jsonTextfile = Resources.Load<TextAsset>("Musics/SpookyScarySkeleton/HardStandard");
+        TextAsset jsonTextfile = Resources.Load<TextAsset>(musicData.musicDataPath);
         MapsInfo mapReading = new MapsInfo();
         mapReading.InitLevelData(jsonTextfile.text);
         //mapReading.InitLevelData(Path.Combine(dataPath, "SpookyScarySkeleton/HardStandard.dat"));

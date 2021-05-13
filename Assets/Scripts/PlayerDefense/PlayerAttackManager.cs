@@ -12,7 +12,7 @@ public class PlayerAttackManager : MonoBehaviour
     public GameObject keyNotePrefab;
     public float distanceInstantiate = 4f;
 
-    private float BPMSpookyScarySkeletons = 128f;
+    public MusicData MusicData;
     private float timePerBeat = 0;
 
     public BeatmapCreation beatmapCreation;
@@ -30,7 +30,7 @@ public class PlayerAttackManager : MonoBehaviour
     {
         mappedSong = beatmapCreation.songMapping;
 
-        timePerBeat = 60f / BPMSpookyScarySkeletons;
+        timePerBeat = 60f / MusicData.BPM;
 
         lastTime = Time.deltaTime + 0.1f;
     }
