@@ -19,41 +19,30 @@ public class switch_level : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("space"))
-        {
+        if (Input.GetKeyDown("space")) {
             Debug.Log(sceneToGo);
             SceneManager.LoadScene(sceneToGo, LoadSceneMode.Single);
         }
 
-        if (Input.GetKeyUp(KeyCode.LeftArrow) && state > 0)
-        {
+        if (Input.GetKeyUp(KeyCode.LeftArrow) && state > 0) {
             state -= 1;
         }
-        if (Input.GetKeyUp(KeyCode.RightArrow) && state < checkpoints.Length - 1)
-        {
+        if (Input.GetKeyUp(KeyCode.RightArrow) && state < checkpoints.Length - 1) {
             state += 1;
         }
-        Vector2 move = Vector2.zero;
-        // without this check the jukebox is shaking when not moving on checkpoint
-        if((checkpoints[state].transform.position.x - rigidBody.position.x > 0.1f || checkpoints[state].transform.position.x - rigidBody.position.x < -0.1f) 
-            && (checkpoints[state].transform.position.y - rigidBody.position.y > 0.1f || checkpoints[state].transform.position.y - rigidBody.position.y < -0.1))
-        move = (new Vector2(checkpoints[state].transform.position.x - rigidBody.position.x, checkpoints[state].transform.position.y - rigidBody.position.y)).normalized * 10f;
-
-        rigidBody.velocity = move;
+        rigidBody.position = Vector3.Lerp(rigidBody.position, checkpoints[state].transform.position, 0.005f);
     }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.transform.CompareTag("Checkpoint"))
-        {
+        if (collider.transform.CompareTag("Checkpoint")) {
             sceneToGo = collider.GetComponent<checkpoint_level>().sceneName;
             collider.GetComponent<checkpoint_level>().text.SetActive(true);
         }
     }
     void OnTriggerExit2D(Collider2D collider)
     {
-        if (collider.transform.CompareTag("Checkpoint"))
-        {
+        if (collider.transform.CompareTag("Checkpoint")) {
             sceneToGo = collider.GetComponent<checkpoint_level>().sceneName;
             collider.GetComponent<checkpoint_level>().text.SetActive(false);
         }
