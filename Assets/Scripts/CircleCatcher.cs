@@ -13,7 +13,10 @@ public class CircleCatcher : MonoBehaviour
     public int biggestCombo = 0;
     public int actualCombo = 0;
 
+    public int bossLife = 1000;
+
     public Text comboText;
+    public Text bossText;
 
     public Animator bossAnim;
 
@@ -165,9 +168,24 @@ public class CircleCatcher : MonoBehaviour
                 comboText.text = "Missed !";
                 comboText.color = Color.red;
 
+                
+
                 if (actualCombo != 0)
                 {
                     bossAnim.Play("DamageBoss01");
+
+                    bossLife -= (actualCombo * actualCombo);
+
+                    if (bossLife <= 0)
+                    {
+                        //end
+
+                        bossText.text = "DEAD";
+                    }
+                    else
+                    {
+                        bossText.text = "" + bossLife;
+                    }
                 }
 
                 if (actualCombo > biggestCombo)

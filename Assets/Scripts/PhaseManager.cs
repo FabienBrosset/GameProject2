@@ -10,6 +10,9 @@ public class PhaseManager : MonoBehaviour
     public GameObject Defense;
     public int noteCounter = 0;
 
+    //attack obj
+    public GameObject comboText;
+
 
     // Update is called once per frame
     void Update()
@@ -23,10 +26,20 @@ public class PhaseManager : MonoBehaviour
         {
             Attack.SetActive(true);
             Defense.SetActive(false);
-        } else if (!isAttackPhase && !Defense.activeSelf)
+
+            comboText.SetActive(true);
+        }
+        else if (!isAttackPhase && !Defense.activeSelf)
         {
             Attack.SetActive(false);
             Defense.SetActive(true);
+
+            comboText.SetActive(false);
+            GameObject[] keys = GameObject.FindGameObjectsWithTag("KeyNote");
+            foreach (GameObject key in keys)
+            {
+                Destroy(key);
+            }
         }
     }
 }
