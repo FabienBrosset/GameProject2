@@ -6,17 +6,21 @@ using UnityEngine.UI;
 public class PlayerUIController : MonoBehaviour
 {
     public Text hpText;
-    private PlayerDefenseController playerDefenseController;
+    public PlayerDefenseController playerDefenseController;
+    public PlayerLifeManager playerLifeManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerDefenseController = gameObject.GetComponent<PlayerDefenseController>();
+        hpText.text = playerLifeManager.hp.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        hpText.text = playerDefenseController.hp.ToString();
+        // Get hp only when it's in defense phase
+        if (playerDefenseController.gameObject.activeSelf) { 
+            hpText.text = playerLifeManager.hp.ToString();
+        }
     }
 }

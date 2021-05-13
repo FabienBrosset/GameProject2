@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DrumPlaySong.unity
     guid: 0811d7745a03bc3438f1e2f9b8744afc
+  - enabled: 1
+    path: Assets/Scenes/LoseScene.unity
+    guid: 14a235b751e0f874097daf767e08e624
   m_configObjects: {}

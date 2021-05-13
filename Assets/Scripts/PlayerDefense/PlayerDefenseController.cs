@@ -15,8 +15,7 @@ public class PlayerDefenseController : MonoBehaviour
     public Transform maxTopRight;
     public Transform maxBottomLeft;
 
-    public int hp = 5;
-
+    public PlayerLifeManager playerLifeManager;
 
     void Start()
     {
@@ -32,7 +31,7 @@ public class PlayerDefenseController : MonoBehaviour
             _collider2D.isTrigger = false;
         }
 
-        if (hp <= 0)
+        if (playerLifeManager.hp <= 0)
         {
             Debug.Log("You lost");
         }
@@ -59,17 +58,12 @@ public class PlayerDefenseController : MonoBehaviour
     {
         if (collision.transform.CompareTag("EnemyAttack"))
         {
-            if (hp > 0)
+            if (playerLifeManager.hp > 0)
             {
-                hp--;
+                playerLifeManager.hp--;
                 animator.SetTrigger("TakeDamage");
                 _collider2D.isTrigger = true;
                 takeDamageStartTime = Time.time;
-
-                Debug.Log("Losing life");
-            } else
-            {
-                Debug.Log("Already dead");
             }
         }    
     }
