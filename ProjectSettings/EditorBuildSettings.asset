@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/JukePlaySong.unity
     guid: b3f84844eae5bfb468783fd3c8e70e02
+  - enabled: 1
+    path: Assets/Scenes/PianoPlaySong.unity
+    guid: b6ea89c243c651a429d77bca977c456a
   m_configObjects: {}
