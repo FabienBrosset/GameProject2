@@ -14,15 +14,8 @@ public class PlayMusic : MonoBehaviour
     void Start()
     {
         if (audioSrc == null) audioSrc = new AudioSource();
-        if (File.Exists(Application.dataPath + "/Resources/" + musicData.audioClipPath)) {
-            Debug.Log("audio file exists");
-        } else
-        {
-            Debug.Log("audio file don't exists");
-        }
 
         AudioClip audioClip = Resources.Load<AudioClip>(musicData.audioClipPath);
-        Debug.Log(audioClip);
         audioSrc.clip = audioClip;
         StartCoroutine(StartMusic());
     }
