@@ -757,7 +757,7 @@ MonoBehaviour:
   missed: 0
   biggestCombo: 0
   actualCombo: 0
-  bossLife: 10000
+  bossLife: 7500
   comboText: {fileID: 33465388}
   bossText: {fileID: 1315315247}
   textAnim: DamageBoss01
@@ -1349,7 +1349,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 67f19bbbc769c1e4a9443afed5175ebf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1524,7 +1524,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 10000
+  m_Text: 7500
 --- !u!222 &1315315248
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2103,7 +2103,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -5912800498141821623, guid: d190cdbbcf18be040b3d4262f1f6d300, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
