@@ -14,8 +14,17 @@ public class PlayMusic : MonoBehaviour
     void Start()
     {
         if (audioSrc == null) audioSrc = new AudioSource();
-        //StartCoroutine(LoadTrack(Path.Combine(Application.persistentDataPath + "/Songs/SpookyScarySkeleton/", "Spooky Scary Skeletons.wav")));
-        audioSrc.clip = Resources.Load<AudioClip>(musicData.audioClipPath);
+        if (File.Exists(Application.dataPath + "/Resources/" + musicData.audioClipPath)) {
+            Debug.Log("audio file exists");
+        } else
+        {
+            Debug.Log("audio file don't exists");
+        }
+
+        AudioClip audioClip = Resources.Load<AudioClip>(musicData.audioClipPath);
+        Debug.Log(audioClip);
+        audioSrc.clip = audioClip;
+        StartCoroutine(StartMusic());
     }
 
     IEnumerator LoadTrack(string filename)
@@ -34,16 +43,25 @@ public class PlayMusic : MonoBehaviour
         //audioSrc.Play();
     }
 
-    void OnGUI() // deprecated, use ordinary .UI now available in Unity
+    private void Update()
     {
-        if (GUI.Button(new Rect(0, 0, 100, 100), "Launch Music Test"))
-        {
-            audioSrc.Play();
-        }
     }
 
-    public void OnClick()
+    //void OnGUI() // deprecated, use ordinary .UI now available in Unity
+    //{
+    //    if (GUI.Button(new Rect(0, 0, 100, 100), "Launch Music Test"))
+    //    {
+    //        audioSrc.Play();
+    //    }
+    //}
+
+    public IEnumerator StartMusic()
     {
+        yield return new WaitForSeconds(1f);
+        if (audioSrc.clip == null)
+        {
+            Debug.LogError("There is no music to play in audio.clip");
+        }
         audioSrc.Play();
     }
 }
