@@ -1610,6 +1610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 5
+  transitionPrefab: {fileID: 4880535544065935776, guid: 498b72c311009d7418a302b79f9a96bb, type: 3}
 --- !u!4 &1565636006
 Transform:
   m_ObjectHideFlags: 0
