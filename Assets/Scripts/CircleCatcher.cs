@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CircleCatcher : MonoBehaviour
 {
@@ -180,8 +181,8 @@ public class CircleCatcher : MonoBehaviour
 
                     if (bossLife <= 0)
                     {
-                        //end
-
+                        PlayerPrefs.SetInt("player_score", 1);
+                        SceneManager.LoadScene(5);
                         bossText.text = "DEAD";
                     }
                     else

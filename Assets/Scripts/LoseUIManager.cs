@@ -9,4 +9,10 @@ public class LoseUIManager : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    public void OnRestartClick()
+    {
+        string boss = PlayerPrefs.GetString("Boss");
+        SceneManager.LoadScene(boss);
+    }
 }

@@ -21,6 +21,7 @@ public class switch_level : MonoBehaviour
     {
         if (Input.GetKeyDown("space")) {
             Debug.Log(sceneToGo);
+            PlayerPrefs.SetString("Boss", sceneToGo);
             SceneManager.LoadScene(sceneToGo, LoadSceneMode.Single);
         }
 

@@ -11,6 +11,7 @@ public class PlayerLifeManager : MonoBehaviour
     {
         if (hp <= 0)
         {
+            PlayerPrefs.SetInt("player_score", -1);
             SceneManager.LoadScene(5);
         }
     }
