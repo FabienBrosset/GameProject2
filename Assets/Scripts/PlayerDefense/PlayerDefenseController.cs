@@ -31,11 +31,6 @@ public class PlayerDefenseController : MonoBehaviour
             _collider2D.isTrigger = false;
         }
 
-        if (playerLifeManager.hp <= 0)
-        {
-            Debug.Log("You lost");
-        }
-
         if (Input.GetKey(KeyCode.RightArrow) && transform.position.x < maxTopRight.position.x)
         {
             transform.Translate((Vector2.right * moveSpeed) * Time.deltaTime);

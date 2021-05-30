@@ -6,13 +6,15 @@ using UnityEngine.SceneManagement;
 public class PlayerLifeManager : MonoBehaviour
 {
     public int hp = 5;
+    private bool alreadyLost = false;
+
     public GameObject transitionPrefab;
 
     private void Update()
     {
-        if (hp <= 0)
+        if (hp <= 0 && alreadyLost == false)
         {
-
+            alreadyLost = true;
             GameObject.Find("MusicPlayer").transform.GetComponent<AudioSource>().pitch = 0.75f;
 
             GameObject _trans = Instantiate(transitionPrefab);
