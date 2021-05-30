@@ -23,6 +23,8 @@ public class CircleCatcher : MonoBehaviour
 
     public Animator bossAnim;
 
+    public GameObject transitionPrefab;
+
     private Animator anim;
 
     void Start()
@@ -181,9 +183,22 @@ public class CircleCatcher : MonoBehaviour
 
                     if (bossLife <= 0)
                     {
-                        PlayerPrefs.SetInt("player_score", 1);
-                        SceneManager.LoadScene(5);
+
+                        bossLife = 10000;
+
                         bossText.text = "DEAD";
+
+                        GameObject.Find("MusicPlayer").transform.GetComponent<AudioSource>().pitch = 0.75f;
+
+                        GameObject _trans = Instantiate(transitionPrefab);
+
+                        _trans.transform.parent = GameObject.Find("Canvas").transform;
+
+                        _trans.transform.localPosition = new Vector3(0f ,0f ,0f);
+                        _trans.transform.localScale = new Vector3(1f, 1f, 1f);
+
+                        StartCoroutine(WaitFor());
+
                     }
                     else
                     {
@@ -198,5 +213,13 @@ public class CircleCatcher : MonoBehaviour
 
             Destroy(col.gameObject);
         }
+    }
+
+    IEnumerator WaitFor()
+    {
+        yield return new WaitForSeconds(3);
+
+        PlayerPrefs.SetInt("player_score", 1);
+        SceneManager.LoadScene(5);
     }
 }

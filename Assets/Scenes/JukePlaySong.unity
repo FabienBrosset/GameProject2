@@ -762,6 +762,7 @@ MonoBehaviour:
   bossText: {fileID: 1315315247}
   textAnim: DamageBoss01
   bossAnim: {fileID: 1894754839}
+  transitionPrefab: {fileID: 4880535544065935776, guid: 498b72c311009d7418a302b79f9a96bb, type: 3}
 --- !u!50 &653427837
 Rigidbody2D:
   serializedVersion: 4
