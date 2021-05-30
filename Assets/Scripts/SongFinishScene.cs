@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SongFinishScene : MonoBehaviour
 {
@@ -21,6 +22,14 @@ public class SongFinishScene : MonoBehaviour
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            SceneManager.LoadScene("LevelSelector");
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            string boss = PlayerPrefs.GetString("Boss");
+            SceneManager.LoadScene(boss);
+        }
     }
 }
