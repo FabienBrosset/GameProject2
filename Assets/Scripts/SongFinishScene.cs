@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class SongFinishScene : MonoBehaviour
 {
     public Text ScoreText;
+    public GameObject JukeCrying;
+    public GameObject Juke;
 
     void Start()
     {
@@ -15,8 +17,10 @@ public class SongFinishScene : MonoBehaviour
         if (score == -1)
         {
             ScoreText.text = "You Failed !";
+            JukeCrying.SetActive(true);
         } else {
             ScoreText.text = "You killed " + boss;
+            Juke.SetActive(true);
         }
     }
 
