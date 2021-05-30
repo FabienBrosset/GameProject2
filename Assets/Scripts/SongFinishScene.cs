@@ -19,7 +19,7 @@ public class SongFinishScene : MonoBehaviour
             ScoreText.text = "You Failed !";
             JukeCrying.SetActive(true);
         } else {
-            ScoreText.text = "You killed " + boss;
+            ScoreText.text = "You Win !";
             Juke.SetActive(true);
         }
     }
