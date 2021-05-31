@@ -6,11 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/LevelSelector.unity
+    path: Assets/Scenes/MenuScene.unity
+    guid: c0da25ac17e9b6c449fd3cce7ebb0b12
+  - enabled: 1
+    path: Assets/Scenes/StoryModeScene.unity
     guid: 571005cc886b0664483521313fcbe6bf
   - enabled: 1
-    path: Assets/Scenes/DefenseScene.unity
-    guid: 2b35b2923f8410b4eb467aacde3cc79a
+    path: Assets/Scenes/FreeModeScene.unity
+    guid: 304ebbfa3d5e9194680112c75e2db35a
+  - enabled: 1
+    path: Assets/Scenes/LoseScene.unity
+    guid: 14a235b751e0f874097daf767e08e624
   - enabled: 1
     path: Assets/Scenes/JukePlaySong.unity
     guid: b3f84844eae5bfb468783fd3c8e70e02
@@ -20,7 +26,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DrumPlaySong.unity
     guid: 0811d7745a03bc3438f1e2f9b8744afc
-  - enabled: 1
-    path: Assets/Scenes/LoseScene.unity
-    guid: 14a235b751e0f874097daf767e08e624
   m_configObjects: {}

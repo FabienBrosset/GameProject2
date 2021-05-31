@@ -28,7 +28,7 @@ public class SongFinishScene : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.L))
         {
-            SceneManager.LoadScene("LevelSelector");
+            SceneManager.LoadScene("StoryModeScene");
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
