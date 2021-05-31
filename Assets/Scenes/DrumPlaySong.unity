@@ -1542,7 +1542,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1203703387}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.1131735, y: -3.190672, z: -0.82968235}
+  m_LocalPosition: {x: -5.43, y: -2.23, z: -0.82968235}
   m_LocalScale: {x: 0.49343, y: 0.49343, z: 0.49343}
   m_Children: []
   m_Father: {fileID: 2125740383}
@@ -1902,6 +1902,8 @@ MonoBehaviour:
   phaseManager: {fileID: 2079546078}
   TopRightMax: {fileID: 1045327899}
   BottomLeftMax: {fileID: 68203564}
+  justChangedPhase: 0
+  changingPhaseTime: 0
 --- !u!1 &1641230321
 GameObject:
   m_ObjectHideFlags: 0
@@ -2414,6 +2416,8 @@ MonoBehaviour:
   MusicData: {fileID: 469682421}
   beatmapCreation: {fileID: 863787459}
   audio: {fileID: 1184180175}
+  justChangedPhase: 0
+  changingPhaseTime: 0
   phaseManager: {fileID: 2079546078}
 --- !u!4 &1798645159
 Transform:
