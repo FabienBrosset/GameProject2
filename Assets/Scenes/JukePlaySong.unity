@@ -757,7 +757,7 @@ MonoBehaviour:
   missed: 0
   biggestCombo: 0
   actualCombo: 0
-  bossLife: 7500
+  bossLife: 5000
   comboText: {fileID: 33465388}
   bossText: {fileID: 1315315247}
   textAnim: DamageBoss01
