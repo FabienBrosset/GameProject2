@@ -44,6 +44,10 @@ public class PhaseManager : MonoBehaviour
         if (isAttackPhase && !Attack.activeSelf)
         {
             Attack.SetActive(true);
+
+            PlayerAttackManager playerAttackManager = Attack.GetComponentInChildren<PlayerAttackManager>();
+            playerAttackManager.justChangedPhase = true;
+            playerAttackManager.changingPhaseTime = Time.time;
             Defense.SetActive(false);
 
             comboText.SetActive(true);
@@ -52,6 +56,9 @@ public class PhaseManager : MonoBehaviour
         {
             Attack.SetActive(false);
             Defense.SetActive(true);
+            PlayerDefenseManager playerDefenseManager = Defense.GetComponentInChildren<PlayerDefenseManager>();
+            playerDefenseManager.justChangedPhase = true;
+            playerDefenseManager.changingPhaseTime = Time.time;
 
             comboText.SetActive(false);
             GameObject[] keys = GameObject.FindGameObjectsWithTag("KeyNote");

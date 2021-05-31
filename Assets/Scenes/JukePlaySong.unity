@@ -2027,6 +2027,8 @@ MonoBehaviour:
   phaseManager: {fileID: 2079546078}
   TopRightMax: {fileID: 1045327899}
   BottomLeftMax: {fileID: 68203564}
+  justChangedPhase: 0
+  changingPhaseTime: 0
 --- !u!1 &1641230321
 GameObject:
   m_ObjectHideFlags: 0
@@ -2346,6 +2348,8 @@ MonoBehaviour:
   MusicData: {fileID: 1076806860}
   beatmapCreation: {fileID: 863787459}
   audio: {fileID: 1184180175}
+  justChangedPhase: 0
+  changingPhaseTime: 0
   phaseManager: {fileID: 2079546078}
 --- !u!4 &1798645159
 Transform:
@@ -2376,7 +2380,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1883688098
 Transform:
   m_ObjectHideFlags: 0
@@ -2657,7 +2661,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2125740383
 Transform:
   m_ObjectHideFlags: 0

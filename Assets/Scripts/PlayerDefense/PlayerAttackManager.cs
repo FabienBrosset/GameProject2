@@ -24,6 +24,9 @@ public class PlayerAttackManager : MonoBehaviour
     private float lastTime = 0f;
     private float actualTime = 0;
 
+    public bool justChangedPhase = false;
+    public float changingPhaseTime = 0f;
+
     public PhaseManager phaseManager;
 
     void Start()
@@ -42,12 +45,22 @@ public class PlayerAttackManager : MonoBehaviour
         {
             return;
         }
-        
+
         if (mappedSong._notes.Length > phaseManager.noteCounter)
         {
             if (mappedSong._notes[phaseManager.noteCounter]._time <= (audio.time / timePerBeat))
             {
+                phaseManager.noteCounter++;
 
+                // don't spawn notes the two first second after chaging phase
+                if (justChangedPhase == true && Time.time - changingPhaseTime <= 1f)
+                {
+                    return;
+                }
+                else if (justChangedPhase == true)
+                {
+                    justChangedPhase = false;
+                }
                 //UnityEngine.Debug.Log("x " + mappedSong._notes[noteCounter]._lineIndex);
 
                 if (mappedSong._notes[phaseManager.noteCounter]._lineIndex == 0)
@@ -67,13 +80,11 @@ public class PlayerAttackManager : MonoBehaviour
                     CreateKeyNote(new Vector2(0f, distanceInstantiate), "down", speedValue);
                 }
 
-
                 lastTime = actualTime + 0.2f;
 
                 //UnityEngine.Debug.Log("y " + mappedSong._notes[noteCounter]._lineLayer);
                 //UnityEngine.Debug.Log("Should pop at " + mappedSong._notes[noteCounter]._time + " Popekd at " + audio.time);
                 //Instantiate(fireBallPrefab, new Vector2(randomX, 4), Quaternion.identity);
-                phaseManager.noteCounter++;
             }
 
 

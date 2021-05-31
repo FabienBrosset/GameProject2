@@ -25,6 +25,9 @@ public class PlayerDefenseManager : MonoBehaviour
     public Transform TopRightMax;
     public Transform BottomLeftMax;
 
+    public bool justChangedPhase = false;
+    public float changingPhaseTime = 0f;
+
     private float lastWallTime = 0f;
 
     void Start()
@@ -44,30 +47,41 @@ public class PlayerDefenseManager : MonoBehaviour
             {
                 float randomX = Random.Range(-6.5f, 7f);
 
+                phaseManager.noteCounter++;
                 //UnityEngine.Debug.Log("x " + mappedSong._notes[phaseManager.noteCounter]._lineIndex);
                 //UnityEngine.Debug.Log("y " + mappedSong._notes[phaseManager.noteCounter]._cutDirection);
                 //UnityEngine.Debug.Log("Should pop at " + mappedSong._notes[noteCounter]._time + " Poped at " + audio.time);
+
+                // don't spawn notes the two first second after chaging phase
+                if (justChangedPhase == true && Time.time - changingPhaseTime <= 1f)
+                {
+                    return;
+                }
+                else if (justChangedPhase == true)
+                {
+                    justChangedPhase = false;
+                }
+
                 Instantiate(fireBallPrefab, new Vector2(randomX, 4), Quaternion.identity);
-                phaseManager.noteCounter++;
             }
         }
         // spawn walls to dogde
-        if (mappedSong._obstacles.Length > obstacleCounter)
-        {
-            if (mappedSong._obstacles[obstacleCounter]._time <= ( _audio.time / timePerBeat))
-            {
-                // wait at least one sec to pop another wall
-                if (_audio.time - lastWallTime < 1f)
-                {
-                    obstacleCounter++;
-                    return;
-                }
-                int rand = Random.Range(0, walls.Count);
-                Instantiate(walls[rand], wallSpawner.transform.position, Quaternion.identity);
-                lastWallTime = _audio.time;
-                obstacleCounter++;
-            }
-        }
+        //if (mappedSong._obstacles.Length > obstacleCounter)
+        //{
+        //    if (mappedSong._obstacles[obstacleCounter]._time <= ( _audio.time / timePerBeat))
+        //    {
+        //        // wait at least one sec to pop another wall
+        //        if (_audio.time - lastWallTime < 1f)
+        //        {
+        //            obstacleCounter++;
+        //            return;
+        //        }
+        //        int rand = Random.Range(0, walls.Count);
+        //        Instantiate(walls[rand], wallSpawner.transform.position, Quaternion.identity);
+        //        lastWallTime = _audio.time;
+        //        obstacleCounter++;
+        //    }
+        //}
     }
 
     private float GetXPosition(int lineIndex, int cutDirection)
