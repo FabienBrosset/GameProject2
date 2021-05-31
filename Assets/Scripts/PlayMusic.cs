@@ -10,6 +10,7 @@ public class PlayMusic : MonoBehaviour
 {
     public AudioSource audioSrc;
     public MusicData musicData;
+    public PhaseManager phaseManager;
 
     void Start()
     {
@@ -17,6 +18,7 @@ public class PlayMusic : MonoBehaviour
 
         AudioClip audioClip = Resources.Load<AudioClip>(musicData.audioClipPath);
         audioSrc.clip = audioClip;
+        phaseManager.CalculatePhaseChangingTime(audioClip.length);
         StartCoroutine(StartMusic());
     }
 

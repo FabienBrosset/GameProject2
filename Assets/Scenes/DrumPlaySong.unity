@@ -1006,6 +1006,10 @@ PrefabInstance:
       propertyPath: musicData
       value: 
       objectReference: {fileID: 469682421}
+    - target: {fileID: 8710516517583743833, guid: a39d11ce6d141a14b846893888305c8e, type: 3}
+      propertyPath: phaseManager
+      value: 
+      objectReference: {fileID: 2079546078}
     - target: {fileID: 8710516517583743835, guid: a39d11ce6d141a14b846893888305c8e, type: 3}
       propertyPath: m_Name
       value: MusicPlayer
@@ -2282,6 +2286,8 @@ MonoBehaviour:
   Attack: {fileID: 1883688097}
   Defense: {fileID: 2125740382}
   noteCounter: 0
+  audioSource: {fileID: 1184180175}
+  phaseChangingTime: 0
   comboText: {fileID: 33465386}
 --- !u!4 &2079546079
 Transform:

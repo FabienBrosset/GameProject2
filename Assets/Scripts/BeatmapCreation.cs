@@ -12,7 +12,7 @@ public class BeatmapCreation : MonoBehaviour
     public MusicData musicData;
 
     // Do the mapping of the music level
-    void Start()
+    void Awake()
     {
         //string dataPath = Path.Combine(Application.persistentDataPath, "Songs");
 

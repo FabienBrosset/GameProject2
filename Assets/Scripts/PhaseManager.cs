@@ -9,18 +9,37 @@ public class PhaseManager : MonoBehaviour
     public GameObject Attack;
     public GameObject Defense;
     public int noteCounter = 0;
+    public AudioSource audioSource;
+
+    private int phaseCounter = 1;
+
+    public float phaseChangingTime = 0;
 
     //attack obj
     public GameObject comboText;
 
+    public void CalculatePhaseChangingTime(float totalMusicTime)
+    {
+        // Divide by 4 to have 2 attack phase and 2 defense phase
+        phaseChangingTime = totalMusicTime / 4;
+    }
 
-    // Update is called once per frame
     void Update()
     {
+        if (phaseChangingTime * phaseCounter <= audioSource.time)
+        {
+            isAttackPhase = !isAttackPhase;
+            phaseCounter += 1;
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             isAttackPhase = !isAttackPhase;
         }
+        CheckForPhaseChange();
+    }
+
+    void CheckForPhaseChange()
+    {
         // if it's the attack phase and the gameobject attack is not active yet
         if (isAttackPhase && !Attack.activeSelf)
         {
