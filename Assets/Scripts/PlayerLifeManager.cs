@@ -33,6 +33,6 @@ public class PlayerLifeManager : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         PlayerPrefs.SetInt("player_score", -1);
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene("LoseScene");
     }
 }
