@@ -25,7 +25,6 @@ public class PlayerDefenseController : MonoBehaviour
 
     void Update()
     {
-        // reset the collider when invicibilty frame end
         if (Time.time - takeDamageStartTime >= inviciblityTime && _collider2D.isTrigger == true)
         {
             _collider2D.isTrigger = false;
@@ -53,7 +52,7 @@ public class PlayerDefenseController : MonoBehaviour
     {
         if (collision.transform.CompareTag("EnemyAttack"))
         {
-            if (playerLifeManager.hp > 0)
+            if (playerLifeManager.hp > 0 && _collider2D.isTrigger == false)
             {
                 playerLifeManager.hp--;
                 animator.SetTrigger("TakeDamage");
