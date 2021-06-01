@@ -25,11 +25,6 @@ public class PlayerDefenseController : MonoBehaviour
 
     void Update()
     {
-        if (Time.time - takeDamageStartTime >= inviciblityTime && _collider2D.isTrigger == true)
-        {
-            _collider2D.isTrigger = false;
-        }
-
         if (Input.GetKey(KeyCode.RightArrow) && transform.position.x < maxTopRight.position.x)
         {
             transform.Translate((Vector2.right * moveSpeed) * Time.deltaTime);
@@ -48,15 +43,16 @@ public class PlayerDefenseController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if (collision.transform.CompareTag("EnemyAttack"))
+        if (col.transform.CompareTag("EnemyAttack"))
         {
-            if (playerLifeManager.hp > 0 && _collider2D.isTrigger == false)
+            if (Time.time - takeDamageStartTime <= inviciblityTime)
+                return;
+            if (playerLifeManager.hp > 0)
             {
                 playerLifeManager.hp--;
                 animator.SetTrigger("TakeDamage");
-                _collider2D.isTrigger = true;
                 takeDamageStartTime = Time.time;
             }
         }    
