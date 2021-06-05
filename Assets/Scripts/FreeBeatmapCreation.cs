@@ -6,7 +6,7 @@ using System.IO;
 using UnityEngine.UIElements;
 using static MapsInfo;
 
-public class BeatmapCreation : MonoBehaviour
+public class FreeBeatmapCreation : MonoBehaviour
 {
     public Fst_SongMap songMapping;
     public MusicData musicData;
@@ -14,9 +14,10 @@ public class BeatmapCreation : MonoBehaviour
     // Do the mapping of the music level
     void Awake()
     {
-        TextAsset jsonTextfile = Resources.Load<TextAsset>(musicData.musicDataPath);
+        Debug.Log("freebtp :" + musicData.musicDataPath + ".json");
+        string content = File.ReadAllText(musicData.musicDataPath + ".json");
         MapsInfo mapReading = new MapsInfo();
-        mapReading.InitLevelData(jsonTextfile.text);
+        mapReading.InitLevelData(content);
         songMapping = mapReading.GetSongMapping();
     }
 }

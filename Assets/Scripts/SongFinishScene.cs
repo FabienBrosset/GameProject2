@@ -30,6 +30,10 @@ public class SongFinishScene : MonoBehaviour
         {
             SceneManager.LoadScene("StoryModeScene");
         }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            SceneManager.LoadScene("FreeModeScene");
+        }
         if (Input.GetKeyDown(KeyCode.R))
         {
             string boss = PlayerPrefs.GetString("Boss");

@@ -4,7 +4,17 @@ using UnityEngine;
 
 public class MusicData : MonoBehaviour
 {
-    public string musicDataPath = "Musics/SpookyScarySkeleton/HardStandard";
-    public string audioClipPath = "Musics/SpookyScarySkeleton/Spooky Scary Skeletons";
-    public float BPM = 128f;
+    public string musicDataPath;
+    public string audioClipPath;
+    public float BPM;
+
+    void Awake()
+    {
+        if (musicDataPath == "")
+            musicDataPath = PlayerPrefs.GetString("MusicPath");
+        if (audioClipPath == "")
+            audioClipPath = PlayerPrefs.GetString("AudioPath");
+        if (BPM == 0f)
+            BPM = PlayerPrefs.GetFloat("BPM");
+    }
 }

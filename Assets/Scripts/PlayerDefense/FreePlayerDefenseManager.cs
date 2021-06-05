@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 using static MapsInfo;
 
-public class PlayerDefenseManager : MonoBehaviour
+public class FreePlayerDefenseManager : MonoBehaviour
 {
     public List<GameObject> walls;
     public GameObject fireBallPrefab;
@@ -14,13 +14,13 @@ public class PlayerDefenseManager : MonoBehaviour
     public MusicData musicData;
     private float timePerBeat = 0;
 
-    public BeatmapCreation beatmapCreation;
+    public FreeBeatmapCreation beatmapCreation;
 
     private Fst_SongMap mappedSong;
 
     private int obstacleCounter = 0;
     public AudioSource _audio;
-    public PhaseManager phaseManager;
+    public FreePhaseManager phaseManager;
 
     public Transform TopRightMax;
     public Transform BottomLeftMax;
@@ -65,7 +65,7 @@ public class PlayerDefenseManager : MonoBehaviour
                 Instantiate(fireBallPrefab, new Vector2(randomX, 4), Quaternion.identity);
             }
         }
-        // spawn walls to dogde
+//        spawn walls to dogde
         if (mappedSong._obstacles.Length > obstacleCounter)
         {
             if (mappedSong._obstacles[obstacleCounter]._time <= (_audio.time / timePerBeat))

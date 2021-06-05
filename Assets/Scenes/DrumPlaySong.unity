@@ -982,6 +982,7 @@ MonoBehaviour:
   textAnim: DamageBoss03
   bossAnim: {fileID: 525886129}
   transitionPrefab: {fileID: 4880535544065935776, guid: 498b72c311009d7418a302b79f9a96bb, type: 3}
+  audiosource: {fileID: 1184180175}
 --- !u!50 &653427837
 Rigidbody2D:
   serializedVersion: 4
@@ -1287,6 +1288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 5
   transitionPrefab: {fileID: 4880535544065935776, guid: 498b72c311009d7418a302b79f9a96bb, type: 3}
+  audiosource: {fileID: 1184180175}
 --- !u!4 &1004863445
 Transform:
   m_ObjectHideFlags: 0

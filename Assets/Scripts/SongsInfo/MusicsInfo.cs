@@ -45,24 +45,23 @@ public class MusicsInfo : MonoBehaviour
 
 	public List<SongData> Musics;
 
-
-
-
-
-
 	//Parse the global information of the song + add the folderPath
 	void Start()
     {
-		//string dataPath = Application.persistentDataPath + "/Songs";
+	}
 
-		//foreach (string dirPath in Directory.GetDirectories(dataPath, "*", SearchOption.AllDirectories))
-		//{
-		//	string content = File.ReadAllText(Path.Combine(dirPath, "info.dat"));
-			TextAsset jsonTextfile = Resources.Load<TextAsset>("Musics/SpookyScarySkeleton/info");
-			Debug.Log(jsonTextfile.text);
-			SongData songdata = JsonUtility.FromJson<SongData>(jsonTextfile.text);
-//			songdata._folderPath = dirPath;
+	public void refreshDataMusic()
+    {
+		string dataPath = Application.persistentDataPath + "/Songs";
+
+		Musics.Clear();
+
+		foreach (string dirPath in Directory.GetDirectories(dataPath, "*", SearchOption.AllDirectories))
+		{
+			string content = File.ReadAllText(Path.Combine(dirPath, "info.json"));
+			SongData songdata = JsonUtility.FromJson<SongData>(content);
+			songdata._folderPath = dirPath;
 			Musics.Add(songdata);
-		//}
+		}
 	}
 }

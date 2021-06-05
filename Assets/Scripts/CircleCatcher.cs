@@ -24,6 +24,7 @@ public class CircleCatcher : MonoBehaviour
     public Animator bossAnim;
 
     public GameObject transitionPrefab;
+    public AudioSource audiosource;
 
     private Animator anim;
 
@@ -188,7 +189,7 @@ public class CircleCatcher : MonoBehaviour
 
                         bossText.text = "DEAD";
 
-                        GameObject.Find("MusicPlayer").transform.GetComponent<AudioSource>().pitch = 0.75f;
+                        audiosource.pitch = 0.75f;
 
                         GameObject _trans = Instantiate(transitionPrefab);
 
@@ -217,9 +218,13 @@ public class CircleCatcher : MonoBehaviour
 
     IEnumerator WaitFor()
     {
+        Scene scene = SceneManager.GetActiveScene();
         yield return new WaitForSeconds(3);
 
         PlayerPrefs.SetInt("player_score", 1);
-        SceneManager.LoadScene("LoseScene");
+        if (scene.name == "FreeModeFight")
+            SceneManager.LoadScene("FreeLoseScene");
+        else
+            SceneManager.LoadScene("LoseScene");
     }
 }
