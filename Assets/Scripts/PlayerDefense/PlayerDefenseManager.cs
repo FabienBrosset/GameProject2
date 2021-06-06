@@ -8,8 +8,10 @@ using static MapsInfo;
 public class PlayerDefenseManager : MonoBehaviour
 {
     public List<GameObject> walls;
-    public GameObject fireBallPrefab;
     public GameObject wallSpawner;
+    
+    public GameObject fireBallPrefab;
+    private float noteWidth = 1f;
 
     public MusicData musicData;
     private float timePerBeat = 0;
@@ -27,11 +29,18 @@ public class PlayerDefenseManager : MonoBehaviour
 
     public bool justChangedPhase = false;
     public float changingPhaseTime = 0f;
+    private float lastNotePosition = 0f;
 
     private float lastWallTime = 0f;
 
+    public GameObject warningPrefab;
+    private float warningLifeTime = 0.5f;
+
     void Start()
     {
+
+        noteWidth = fireBallPrefab.GetComponent<Renderer>().bounds.size.x;
+
         mappedSong = beatmapCreation.songMapping;
 
         timePerBeat = 60f / musicData.BPM;
@@ -43,14 +52,33 @@ public class PlayerDefenseManager : MonoBehaviour
         // spawn fireball
         if (mappedSong._notes.Length > phaseManager.noteCounter)
         {
-            if (mappedSong._notes[phaseManager.noteCounter]._time <= (_audio.time / timePerBeat))
+            if (mappedSong._notes[phaseManager.noteCounter]._time <= ((_audio.time + warningLifeTime) / timePerBeat))
             {
-                float randomX = Random.Range(-6.5f, 7f);
+                float leftLimit = -6f;
+                float rightLimit = 7f;
+                float randomX = Random.Range(leftLimit, rightLimit);
+
+                float margin = 0.5f;
+                // if this note want to spawn at the same place or 0.5f (the margin) on each side as the last one, make it spawn somewhere else
+                if (randomX >= lastNotePosition - noteWidth - margin && randomX <= lastNotePosition + margin)
+                {
+                    float leftDiff = Mathf.Abs(leftLimit - randomX);
+                    float rightDiff = rightLimit - randomX;
+                    
+                    // note is more on the right, so shift it to the left
+                    if (rightDiff < leftDiff)
+                    {
+                        UnityEngine.Debug.Log("Shifted to the right");
+                        randomX -= noteWidth + Random.Range(0f, 3f);
+                    }
+                    else // note is more on the left, so shift it to the right
+                    {
+                        UnityEngine.Debug.Log("Shifted to the left");
+                        randomX += noteWidth + Random.Range(0f, 3f);
+                    }
+                }
 
                 phaseManager.noteCounter++;
-                //UnityEngine.Debug.Log("x " + mappedSong._notes[phaseManager.noteCounter]._lineIndex);
-                //UnityEngine.Debug.Log("y " + mappedSong._notes[phaseManager.noteCounter]._cutDirection);
-                //UnityEngine.Debug.Log("Should pop at " + mappedSong._notes[noteCounter]._time + " Poped at " + audio.time);
 
                 // don't spawn notes the two first second after chaging phase
                 if (justChangedPhase == true && Time.time - changingPhaseTime <= 1f)
@@ -61,8 +89,8 @@ public class PlayerDefenseManager : MonoBehaviour
                 {
                     justChangedPhase = false;
                 }
-
-                Instantiate(fireBallPrefab, new Vector2(randomX, 4), Quaternion.identity);
+                lastNotePosition = randomX;
+                StartCoroutine(InstanciateNote(randomX));
             }
         }
         // spawn walls to dogde
@@ -88,5 +116,17 @@ public class PlayerDefenseManager : MonoBehaviour
     {
         int position = lineIndex + cutDirection;
         return TopRightMax.position.x - (position * (Mathf.Abs(TopRightMax.position.x - BottomLeftMax.position.x) / 8) + 2.375f / 2f);
+    }
+
+    IEnumerator InstanciateNote(float randomX)
+    {
+        //Create the warning
+        Instantiate(warningPrefab, new Vector2(randomX, -4f), Quaternion.identity);
+
+        yield return new WaitForSeconds(warningLifeTime);
+
+        Instantiate(fireBallPrefab, new Vector2(randomX, 5f), Quaternion.identity);
+
+        //Create the note afte
     }
 }
