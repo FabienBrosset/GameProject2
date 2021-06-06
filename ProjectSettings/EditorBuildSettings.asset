@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DrumPlaySong.unity
     guid: 0811d7745a03bc3438f1e2f9b8744afc
+  - enabled: 1
+    path: Assets/Scenes/FreeModeFight.unity
+    guid: 937f2ea3de1f8264b91ee4c9c442cb64
+  - enabled: 1
+    path: Assets/Scenes/FreeLoseScene.unity
+    guid: f85d2f83360d63149a844fcab6f5d02c
   m_configObjects: {}

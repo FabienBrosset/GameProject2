@@ -189,6 +189,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &24899280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 24899281}
+  m_Layer: 0
+  m_Name: WarningSpawnerHeight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &24899281
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24899280}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.4931736, y: -6.370672, z: -8.561085}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2125740383}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &33465386
 GameObject:
   m_ObjectHideFlags: 0
@@ -1286,6 +1316,7 @@ MonoBehaviour:
   textAnim: DamageBoss01
   bossAnim: {fileID: 1894754839}
   transitionPrefab: {fileID: 4880535544065935776, guid: 498b72c311009d7418a302b79f9a96bb, type: 3}
+  audiosource: {fileID: 1184180175}
 --- !u!50 &653427837
 Rigidbody2D:
   serializedVersion: 4
@@ -2262,6 +2293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 5
   transitionPrefab: {fileID: 4880535544065935776, guid: 498b72c311009d7418a302b79f9a96bb, type: 3}
+  audiosource: {fileID: 1184180175}
 --- !u!4 &1565636006
 Transform:
   m_ObjectHideFlags: 0
@@ -2463,8 +2495,8 @@ MonoBehaviour:
   - {fileID: 6508931597621186681, guid: 018d84564c2362640bc231470987482d, type: 3}
   - {fileID: 8933408100766601249, guid: 696e8994960872442b9b1670c233496c, type: 3}
   - {fileID: 8738072242967179962, guid: 3ad56342b699a784ea823c3ec3499919, type: 3}
-  fireBallPrefab: {fileID: 6167667863317086992, guid: 2106c501054c31b4e93f907cf1650434, type: 3}
   wallSpawner: {fileID: 1781990414}
+  fireBallPrefab: {fileID: 6167667863317086992, guid: 2106c501054c31b4e93f907cf1650434, type: 3}
   musicData: {fileID: 1076806860}
   beatmapCreation: {fileID: 863787459}
   _audio: {fileID: 1184180175}
@@ -2473,6 +2505,8 @@ MonoBehaviour:
   BottomLeftMax: {fileID: 68203564}
   justChangedPhase: 0
   changingPhaseTime: 0
+  warningPrefab: {fileID: 7329873246110528467, guid: fe30ad526f321ab48ad64e326adf8ee0, type: 3}
+  transformWarningSpawn: {fileID: 24899281}
 --- !u!1 &1641230321
 GameObject:
   m_ObjectHideFlags: 0
@@ -3328,6 +3362,7 @@ Transform:
   - {fileID: 1781990415}
   - {fileID: 1730299350}
   - {fileID: 186443825}
+  - {fileID: 24899281}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

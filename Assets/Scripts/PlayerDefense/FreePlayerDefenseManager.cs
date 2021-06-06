@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 using static MapsInfo;
 
-public class PlayerDefenseManager : MonoBehaviour
+public class FreePlayerDefenseManager : MonoBehaviour
 {
     public List<GameObject> walls;
     public GameObject wallSpawner;
@@ -16,13 +16,13 @@ public class PlayerDefenseManager : MonoBehaviour
     public MusicData musicData;
     private float timePerBeat = 0;
 
-    public BeatmapCreation beatmapCreation;
+    public FreeBeatmapCreation beatmapCreation;
 
     private Fst_SongMap mappedSong;
 
     private int obstacleCounter = 0;
     public AudioSource _audio;
-    public PhaseManager phaseManager;
+    public FreePhaseManager phaseManager;
 
     public Transform TopRightMax;
     public Transform BottomLeftMax;
@@ -39,7 +39,6 @@ public class PlayerDefenseManager : MonoBehaviour
 
     void Start()
     {
-
         noteWidth = fireBallPrefab.GetComponent<Renderer>().bounds.size.x;
 
         mappedSong = beatmapCreation.songMapping;
@@ -53,7 +52,7 @@ public class PlayerDefenseManager : MonoBehaviour
         // spawn fireball
         if (mappedSong._notes.Length > phaseManager.noteCounter)
         {
-            if (mappedSong._notes[phaseManager.noteCounter]._time <= ((_audio.time + warningLifeTime) / timePerBeat))
+            if (mappedSong._notes[phaseManager.noteCounter]._time <= (_audio.time / timePerBeat))
             {
                 float leftLimit = -6f;
                 float rightLimit = 7f;
@@ -65,7 +64,7 @@ public class PlayerDefenseManager : MonoBehaviour
                 {
                     float leftDiff = Mathf.Abs(leftLimit - randomX);
                     float rightDiff = rightLimit - randomX;
-                    
+
                     // note is more on the right, so shift it to the left
                     if (rightDiff < leftDiff)
                     {
@@ -92,7 +91,7 @@ public class PlayerDefenseManager : MonoBehaviour
                 StartCoroutine(InstanciateNote(randomX));
             }
         }
-        // spawn walls to dogde
+//        spawn walls to dogde
         if (mappedSong._obstacles.Length > obstacleCounter)
         {
             if (mappedSong._obstacles[obstacleCounter]._time <= (_audio.time / timePerBeat))

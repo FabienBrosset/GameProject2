@@ -989,6 +989,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &626183431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 626183432}
+  m_Layer: 0
+  m_Name: WarningSpawnerHeight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &626183432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626183431}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.4931736, y: -5.78, z: -8.561085}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2125740383}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &653427832
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,6 +1154,7 @@ MonoBehaviour:
   textAnim: DamageBoss02
   bossAnim: {fileID: 179429179}
   transitionPrefab: {fileID: 4880535544065935776, guid: 498b72c311009d7418a302b79f9a96bb, type: 3}
+  audiosource: {fileID: 1184180175}
 --- !u!50 &653427837
 Rigidbody2D:
   serializedVersion: 4
@@ -1949,7 +1980,7 @@ Transform:
   m_GameObject: {fileID: 1203703387}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.46, y: -2.19, z: -0.82968235}
-  m_LocalScale: {x: 0.49343, y: 0.49343, z: 0.49343}
+  m_LocalScale: {x: 0.8596863, y: 0.8596863, z: 0.8596863}
   m_Children: []
   m_Father: {fileID: 2125740383}
   m_RootOrder: 0
@@ -1986,7 +2017,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.003992215, y: 0.0057753325}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1997,7 +2028,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.83232665, y: 1.1712394}
   m_EdgeRadius: 0
 --- !u!50 &1203703392
 Rigidbody2D:
@@ -2420,8 +2451,8 @@ MonoBehaviour:
   - {fileID: 6508931597621186681, guid: 018d84564c2362640bc231470987482d, type: 3}
   - {fileID: 8933408100766601249, guid: 696e8994960872442b9b1670c233496c, type: 3}
   - {fileID: 8738072242967179962, guid: 3ad56342b699a784ea823c3ec3499919, type: 3}
-  fireBallPrefab: {fileID: 6167667863317086992, guid: 1acde9e5d8b295a4fbf19bfcf9c7cde1, type: 3}
   wallSpawner: {fileID: 1781990414}
+  fireBallPrefab: {fileID: 6167667863317086992, guid: 1acde9e5d8b295a4fbf19bfcf9c7cde1, type: 3}
   musicData: {fileID: 1019702402}
   beatmapCreation: {fileID: 863787459}
   _audio: {fileID: 1184180175}
@@ -2430,6 +2461,8 @@ MonoBehaviour:
   BottomLeftMax: {fileID: 68203564}
   justChangedPhase: 0
   changingPhaseTime: 0
+  warningPrefab: {fileID: 7329873246110528467, guid: fe30ad526f321ab48ad64e326adf8ee0, type: 3}
+  transformWarningSpawn: {fileID: 626183432}
 --- !u!1 &1641230321
 GameObject:
   m_ObjectHideFlags: 0
@@ -3437,6 +3470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 5
   transitionPrefab: {fileID: 4880535544065935776, guid: 498b72c311009d7418a302b79f9a96bb, type: 3}
+  audiosource: {fileID: 1184180175}
 --- !u!4 &2070364485
 Transform:
   m_ObjectHideFlags: 0
@@ -3534,6 +3568,7 @@ Transform:
   - {fileID: 1781990415}
   - {fileID: 1730299350}
   - {fileID: 186443825}
+  - {fileID: 626183432}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

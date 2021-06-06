@@ -9,13 +9,14 @@ public class PlayerLifeManager : MonoBehaviour
     private bool alreadyLost = false;
 
     public GameObject transitionPrefab;
+    public AudioSource audiosource;
 
     private void Update()
     {
         if (hp <= 0 && alreadyLost == false)
         {
             alreadyLost = true;
-            GameObject.Find("MusicPlayer").transform.GetComponent<AudioSource>().pitch = 0.75f;
+            audiosource.pitch = 0.75f;
 
             GameObject _trans = Instantiate(transitionPrefab);
 
@@ -30,9 +31,15 @@ public class PlayerLifeManager : MonoBehaviour
 
     IEnumerator WaitFor()
     {
+        Scene scene = SceneManager.GetActiveScene();
         yield return new WaitForSeconds(3);
 
+        Debug.Log(scene.name);
+
         PlayerPrefs.SetInt("player_score", -1);
-        SceneManager.LoadScene("LoseScene");
+        if (scene.name == "FreeModeFight")
+            SceneManager.LoadScene("FreeLoseScene");
+        else
+            SceneManager.LoadScene("LoseScene");
     }
 }

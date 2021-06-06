@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PhaseManager : MonoBehaviour
+public class FreePhaseManager : MonoBehaviour
 {
 
     private bool isAttackPhase = true;
@@ -45,7 +45,7 @@ public class PhaseManager : MonoBehaviour
         {
             Attack.SetActive(true);
 
-            PlayerAttackManager playerAttackManager = Attack.GetComponentInChildren<PlayerAttackManager>();
+            FreePlayerAttackManager playerAttackManager = Attack.GetComponentInChildren<FreePlayerAttackManager>();
             playerAttackManager.justChangedPhase = true;
             playerAttackManager.changingPhaseTime = Time.time;
             Defense.SetActive(false);
@@ -56,7 +56,7 @@ public class PhaseManager : MonoBehaviour
         {
             Attack.SetActive(false);
             Defense.SetActive(true);
-            PlayerDefenseManager playerDefenseManager = Defense.GetComponentInChildren<PlayerDefenseManager>();
+            FreePlayerDefenseManager playerDefenseManager = Defense.GetComponentInChildren<FreePlayerDefenseManager>();
             playerDefenseManager.justChangedPhase = true;
             playerDefenseManager.changingPhaseTime = Time.time;
 
