@@ -16,4 +16,27 @@ public class SceneManagement : MonoBehaviour
         Application.Quit();
     }
 
+    //SceneManagement for FreeMode
+    public void OpenBSaberSite()
+    {
+        Application.OpenURL("https://bsaber.com/songs/top/?time=7-days");
+    }
+
+    public void openSongFolder ()
+    {
+        string dataPath = Application.persistentDataPath + "/Songs";
+
+        dataPath = dataPath.Replace(@"/", @"\");
+        System.Diagnostics.Process.Start("explorer.exe", "/select," + dataPath);
+    }
+
+    public void openFreeModeInfo(GameObject canvas)
+    {
+        canvas.SetActive(true);
+    }
+
+    public void closeFreeModeInfo(GameObject canvas)
+    {
+        canvas.SetActive(false);
+    }
 }
