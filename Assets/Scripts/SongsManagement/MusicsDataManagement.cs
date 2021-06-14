@@ -75,6 +75,13 @@ public class MusicsDataManagement : MonoBehaviour
         launchGameButton.SetActive(false);
         musicsInfo.refreshDataMusic();
 
+        Transform transform;
+        for (int i = 0; i < musicContent.transform.childCount; i++)
+        {
+            transform = musicContent.transform.GetChild(i);
+            GameObject.Destroy(transform.gameObject);
+        }
+
         float y = 50f;
         int contentSize = 0;
         for (int i = 0; i != musicsInfo.Musics.Count; i++)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
+using UnityEngine.SceneManagement;
 
 public class FreePlayMusic : MonoBehaviour
 {
@@ -10,10 +11,13 @@ public class FreePlayMusic : MonoBehaviour
     public MusicData musicData;
     public FreePhaseManager phaseManager;
 
+    private bool startMusic;
+
     void Start()
     {
         Debug.Log("freeplaymusic :" + musicData.audioClipPath + ".wav");
         if (audioSrc == null) audioSrc = new AudioSource();
+        startMusic = false;
         StartCoroutine(LoadTrack(musicData.audioClipPath + ".wav"));
     }
 
@@ -30,9 +34,15 @@ public class FreePlayMusic : MonoBehaviour
         audioSrc.clip = clip;
         phaseManager.CalculatePhaseChangingTime(audioSrc.clip.length);
         audioSrc.Play();
+        startMusic = true;
     }
 
     private void Update()
     {
+        if (!audioSrc.isPlaying && startMusic)
+        {
+            PlayerPrefs.SetInt("player_score", -1);
+            SceneManager.LoadScene("FreeLoseScene");
+        }
     }
 }
