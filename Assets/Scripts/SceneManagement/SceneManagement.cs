@@ -19,7 +19,7 @@ public class SceneManagement : MonoBehaviour
     //SceneManagement for FreeMode
     public void OpenBSaberSite()
     {
-        Application.OpenURL("https://bsaber.com/songs/top/?time=7-days");
+        Application.OpenURL("https://bsaber.com/songs/top/?time=all");
     }
 
     public void openSongFolder ()
