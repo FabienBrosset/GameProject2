@@ -7,7 +7,7 @@ public class LoseUIManager : MonoBehaviour
 {
     public void OnLevelSelectorClick()
     {
-        SceneManager.LoadScene("LevelSelector");
+        SceneManager.LoadScene("StoryModeScene");
     }
 
     public void OnRestartClick()

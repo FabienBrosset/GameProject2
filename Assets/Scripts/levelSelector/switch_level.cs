@@ -25,6 +25,8 @@ public class switch_level : MonoBehaviour
             SceneManager.LoadScene(sceneToGo, LoadSceneMode.Single);
         }
 
+        Debug.Log(rigidBody.position);
+
         if (Input.GetKeyUp(KeyCode.LeftArrow) && state > 0) {
             state -= 1;
         }
