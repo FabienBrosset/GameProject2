@@ -31,7 +31,7 @@ public class switch_level : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.RightArrow) && state < checkpoints.Length - 1) {
             state += 1;
         }
-        rigidBody.position = Vector3.Lerp(rigidBody.position, checkpoints[state].transform.position, 0.005f);
+        rigidBody.position = Vector3.Lerp(rigidBody.position, checkpoints[state].transform.position, 0.01f);
     }
 
     void OnTriggerEnter2D(Collider2D collider)

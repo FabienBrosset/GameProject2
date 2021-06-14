@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 //This class is a test file to load and play songs from the PersitentData folder
 //////// DON'T DELETE IT ////////
@@ -12,6 +13,8 @@ public class PlayMusic : MonoBehaviour
     public MusicData musicData;
     public PhaseManager phaseManager;
 
+    private bool startMusic;
+
     void Start()
     {
         if (audioSrc == null) audioSrc = new AudioSource();
@@ -19,6 +22,7 @@ public class PlayMusic : MonoBehaviour
         AudioClip audioClip = Resources.Load<AudioClip>(musicData.audioClipPath);
         audioSrc.clip = audioClip;
         phaseManager.CalculatePhaseChangingTime(audioClip.length);
+        startMusic = false;
         StartCoroutine(StartMusic());
     }
 
@@ -40,6 +44,11 @@ public class PlayMusic : MonoBehaviour
 
     private void Update()
     {
+        if (!audioSrc.isPlaying && startMusic)
+        {
+            PlayerPrefs.SetInt("player_score", -1);
+            SceneManager.LoadScene("LoseScene");
+        }
     }
 
     //void OnGUI() // deprecated, use ordinary .UI now available in Unity
@@ -58,5 +67,6 @@ public class PlayMusic : MonoBehaviour
             Debug.LogError("There is no music to play in audio.clip");
         }
         audioSrc.Play();
+        startMusic = true;
     }
 }
