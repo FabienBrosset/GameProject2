@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -24,8 +22,6 @@ public class switch_level : MonoBehaviour
             PlayerPrefs.SetString("Boss", sceneToGo);
             SceneManager.LoadScene(sceneToGo, LoadSceneMode.Single);
         }
-
-        Debug.Log(rigidBody.position);
 
         if (Input.GetKeyUp(KeyCode.LeftArrow) && state > 0) {
             state -= 1;

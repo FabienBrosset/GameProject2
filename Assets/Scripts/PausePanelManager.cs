@@ -42,4 +42,10 @@ public class PausePanelManager : MonoBehaviour
     {
         PauseHandling();
     }
+
+    public void LeavePauseScene()
+    {
+        Time.timeScale = 1;
+        audioSource.pitch = 1;
+    }
 }
